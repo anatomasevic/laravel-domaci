@@ -15,6 +15,13 @@ class BookFactory extends Factory
     {
         return [
             //
+            'title'=>$this->faker->title(),
+        'description'=>$this->faker->paragraph(),
+        
+            
+            'year'=>$this->faker->year(),
+            'publisher'=>$this->name(),
+            'number_of_copy'=>$this->faker->rand(1,50),
         ];
     }
 }

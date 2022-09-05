@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuthorsTable extends Migration
+class DropColumnReturned extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateAuthorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('authors', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('bio');
-            $table->timestamps();
+        Schema::table('reservations', function (Blueprint $table) {
+            //
+            $table->dropColumn('returned');
         });
     }
 
@@ -28,6 +26,9 @@ class CreateAuthorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('authors');
+        Schema::table('reservations', function (Blueprint $table) {
+            //
+            $table->boolean('returned');
+        });
     }
 }

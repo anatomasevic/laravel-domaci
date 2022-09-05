@@ -15,6 +15,8 @@ class ReservationFactory extends Factory
     {
         return [
             //
+            'date_of_create'=>$this->faker->dateTime('Y_m_d H:i:s'),
+        'date_of_returned'=>$this->faker->datedateTime('Y_m_d H:i:s'),
         ];
     }
 }
