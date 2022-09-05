@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use \App\Models\Author;
 
 class BookFactory extends Factory
 {
@@ -17,11 +18,10 @@ class BookFactory extends Factory
             //
             'title'=>$this->faker->title(),
         'description'=>$this->faker->paragraph(),
-        
-            
             'year'=>$this->faker->year(),
-            'publisher'=>$this->name(),
-            'number_of_copy'=>$this->faker->rand(1,50),
+            'publisher'=>$this->faker->name(),
+            'number_of_copy'=>$this->faker->numberBetween(1,60),
+            'author_id'=>Author::factory(),
         ];
     }
 }

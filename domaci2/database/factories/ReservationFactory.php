@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use \App\Models\User;
+use \App\Models\Book;
 
 class ReservationFactory extends Factory
 {
@@ -16,7 +18,9 @@ class ReservationFactory extends Factory
         return [
             //
             'date_of_create'=>$this->faker->dateTime('Y_m_d H:i:s'),
-        'date_of_returned'=>$this->faker->datedateTime('Y_m_d H:i:s'),
+        'date_of_returned'=>$this->faker->dateTime('Y_m_d H:i:s'),
+        'user_id'=>User::factory(),
+        'book_id'=>Book::factory(),
         ];
     }
 }
